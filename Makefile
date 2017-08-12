@@ -1,5 +1,5 @@
 all:
-	g++ trick.cpp
+	g++ -g trick.cpp
 
 test:
 	./a.out
