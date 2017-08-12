@@ -10,12 +10,12 @@ int main () {
 	unsigned short numHomes;
 	input >> numHomes;
 	assert(numHomes < 10000);
-	printf("homes: %d\n", numHomes);
+//	printf("homes: %d\n", numHomes);
 
 	unsigned short maxCandies;
 	input >> maxCandies;
 	assert(maxCandies < 1000);
-	printf("maxCandies: %d\n", maxCandies);
+//	printf("maxCandies: %d\n", maxCandies);
 
 	std::vector<unsigned int> homeCandyDirectory;
 
@@ -25,19 +25,19 @@ int main () {
 		++hIdx)
 	{
 		input >> num;
-		std::cout << num << std::endl;
+//		std::cout << num << std::endl;
 		assert(num < 1000);
 		homeCandyDirectory.push_back(num);
 	}
 	input.close();
 
-	for(unsigned short hIdx = 0;
-		hIdx < homeCandyDirectory.size();
-		++hIdx)
-	{
-		//printf("%d: %d\n", hIdx+1, homeCandyDirectory[hIdx]);
-		printf("%d: %d\n", hIdx, homeCandyDirectory[hIdx]);
-	}
+//	for(unsigned short hIdx = 0;
+//		hIdx < homeCandyDirectory.size();
+//		++hIdx)
+//	{
+//		//printf("%d: %d\n", hIdx+1, homeCandyDirectory[hIdx]);
+//		printf("%d: %d\n", hIdx, homeCandyDirectory[hIdx]);
+//	}
 
 	unsigned short houseStart = 0, houseEnd = 0, numCandies = 0, 
 		targetStart = 0, targetEnd = 0, targetCandies = 0;
@@ -61,25 +61,25 @@ int main () {
 				&& numCandies + homeCandyDirectory[houseEnd] <= maxCandies)
 		{
 			numCandies += homeCandyDirectory[houseEnd];
-			printf("[%d]:%d => %d\n", houseEnd, homeCandyDirectory[houseEnd],
-				numCandies);
+//			printf("[%d]:%d => %d\n", houseEnd, homeCandyDirectory[houseEnd],
+//				numCandies);
 			++houseEnd;
 		}
 	
-		printf("localMax: %d => %d: %d\n", houseStart, houseEnd-1, numCandies);
+//		printf("localMax: %d => %d: %d\n", houseStart, houseEnd-1, numCandies);
 		//found a new max; save
 		if(numCandies > targetCandies){
-			printf("updating max candies from %d => %d\n", targetCandies, numCandies);
+//			printf("updating max candies from %d => %d\n", targetCandies, numCandies);
 			targetStart = houseStart; targetEnd = houseEnd-1; targetCandies = numCandies;
 		}
 
 		//advance the start of the window
 		//subtract from ongoing sum
 		numCandies -= homeCandyDirectory[houseStart];
-		if(houseStart < numHomes-1){
-			printf("advance window: %d => %d: %d\n", houseStart+1, houseEnd-1,
-				numCandies);
-		}
+//		if(houseStart < numHomes-1){
+//			printf("advance window: %d => %d: %d\n", houseStart+1, houseEnd-1,
+//				numCandies);
+//		}
 	}
 
 	//found solution print success and break;
