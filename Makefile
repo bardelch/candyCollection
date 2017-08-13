@@ -1,5 +1,5 @@
 all:
-	g++ -g trick.cpp
+	g++ -g -lgomp -fopenmp trick.cpp
 
 test:
 	./a.out
