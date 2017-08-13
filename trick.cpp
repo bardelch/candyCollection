@@ -66,11 +66,14 @@ int main () {
 			++houseEnd;
 		}
 	
-//		printf("localMax: %d => %d: %d\n", houseStart, houseEnd-1, numCandies);
+//		printf("localMax: %d => %d: %d\n", 
+//			houseStart, houseEnd-1, numCandies);
 		//found a new max; save
 		if(numCandies > targetCandies){
-//			printf("updating max candies from %d => %d\n", targetCandies, numCandies);
-			targetStart = houseStart; targetEnd = houseEnd-1; targetCandies = numCandies;
+//			printf("updating max candies from %d => %d\n", 
+//				targetCandies, numCandies);
+			targetStart = houseStart; targetEnd = houseEnd-1; 
+				targetCandies = numCandies;
 		}
 
 		//advance the start of the window
@@ -84,8 +87,10 @@ int main () {
 
 	//found solution print success and break;
 	if(targetCandies > 0){
-		printf("Start at home %d and go to home %d getting %d pieces of candy\n",
-			targetStart+1, targetEnd+1, targetCandies);
+		printf("Start at home %d and go to home %d ",
+			targetStart+1, targetEnd+1);
+		printf("getting %d pieces of candy\n",
+			targetCandies);
 	}else{
 		printf("Don't go here\n");
 	}
